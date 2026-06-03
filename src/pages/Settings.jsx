@@ -88,7 +88,6 @@ const Settings = () => {
     { id: 'profile', label: 'Profile', icon: User, hindi: 'प्रोफाइल' },
     { id: 'business', label: 'Business', icon: Building2, hindi: 'व्यवसाय' },
     { id: 'password', label: 'Password', icon: Lock, hindi: 'पासवर्ड' },
-    { id: 'appearance', label: 'Appearance', icon: Moon, hindi: 'दिखावट' },
   ]
 
   return (
@@ -265,30 +264,6 @@ const Settings = () => {
               </form>
             )}
 
-            {activeTab === 'appearance' && (
-              <div className="space-y-4">
-                <h2 className="text-lg font-semibold text-gray-900 dark:text-white mb-4">{t('Appearance', 'दिखावट')}</h2>
-                
-                <div className="flex items-center justify-between p-4 bg-gray-50 dark:bg-gray-800 rounded-lg">
-                  <div>
-                    <p className="font-medium text-gray-900 dark:text-white">{t('Dark Mode', 'डार्क मोड')}</p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">Toggle dark mode theme</p>
-                  </div>
-                  <button
-                    onClick={toggleDarkMode}
-                    className={`relative inline-flex h-6 w-11 items-center rounded-full transition-colors ${
-                      darkMode ? 'bg-primary-600' : 'bg-gray-300 dark:bg-gray-600'
-                    }`}
-                  >
-                    <span
-                      className={`inline-block h-4 w-4 transform rounded-full bg-white transition-transform ${
-                        darkMode ? 'translate-x-6' : 'translate-x-1'
-                      }`}
-                    />
-                  </button>
-                </div>
-              </div>
-            )}
           </div>
         </div>
       </div>
