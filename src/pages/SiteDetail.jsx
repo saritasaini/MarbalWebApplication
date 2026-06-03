@@ -153,18 +153,18 @@ const SiteDetail = () => {
         {/* Main Info */}
         <div className="lg:col-span-2 space-y-6">
           <div className="card p-6">
-            <div className="flex items-start justify-between mb-6 gap-2">
-              <div className="flex flex-wrap gap-2">
-                <span className={`status-badge ${getStatusColor(site.paymentStatus)}`}>
+            <div className="flex flex-nowrap items-center justify-between mb-6 gap-2 overflow-hidden">
+              <div className="flex items-center gap-1 sm:gap-2 shrink-0">
+                <span className={`status-badge ${getStatusColor(site.paymentStatus)} whitespace-nowrap text-xs sm:text-sm`}>
                   {site.paymentStatus}
                 </span>
                 {site.isCompleted && (
-                  <span className="status-badge bg-success-100 text-success-600">
+                  <span className="status-badge bg-success-100 text-success-600 whitespace-nowrap text-xs sm:text-sm">
                     Completed
                   </span>
                 )}
               </div>
-              <p className="text-sm text-gray-500 dark:text-gray-400 shrink-0 text-right">
+              <p className="text-xs sm:text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap truncate text-right">
                 Added on {formatDate(site.createdAt)}
               </p>
             </div>
