@@ -41,13 +41,13 @@ const Login = () => {
 
   return (
     <div className="min-h-[100dvh] w-full bg-[#0a0a0a] flex items-center justify-center relative overflow-hidden font-sans">
-      
+
       {/* Dynamic Animated Background Blobs */}
-      <div 
+      <div
         className="absolute top-0 left-0 w-full h-full overflow-hidden pointer-events-none"
         style={{ zIndex: 0 }}
       >
-        <div 
+        <div
           className="absolute rounded-full mix-blend-screen filter blur-[120px] opacity-60 transition-transform duration-1000 hidden md:block"
           style={{
             background: 'radial-gradient(circle, rgba(37,99,235,0.8) 0%, rgba(124,58,237,0) 70%)',
@@ -56,17 +56,17 @@ const Login = () => {
             top: `${mousePosition.y - 300}px`,
           }}
         />
-        <div 
+        <div
           className="absolute top-1/4 left-1/4 w-96 h-96 bg-purple-600/40 rounded-full mix-blend-screen filter blur-[100px] animate-pulse"
         />
-        <div 
+        <div
           className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-blue-600/30 rounded-full mix-blend-screen filter blur-[120px] animate-pulse"
           style={{ animationDelay: '2s' }}
         />
       </div>
 
       <div className="relative z-10 w-full max-w-[1100px] flex flex-col lg:flex-row items-center justify-between px-4 py-8 sm:p-8 lg:p-6 gap-8 lg:gap-12">
-        
+
         {/* Left Side: Brand & Copy */}
         <div className="w-full lg:w-1/2 flex flex-col justify-center text-left">
           <div className="inline-flex items-center justify-center w-20 h-20 bg-gradient-to-br from-blue-500 to-purple-600 rounded-3xl mb-8 shadow-2xl shadow-blue-500/20 border border-white/10 backdrop-blur-sm">
@@ -76,7 +76,7 @@ const Login = () => {
             Refine your business operations.
           </h1>
           <p className="text-lg text-gray-400 font-light max-w-lg leading-relaxed">
-            Experience the next generation of business management. Track sites, monitor finances, and drive growth with our premium dashboard built for professionals.
+            Experience the next generation of business management.
           </p>
         </div>
 

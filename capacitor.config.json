@@ -1,0 +1,8 @@
+{
+  "appId": "com.marblepro.app",
+  "appName": "Marble Pro",
+  "webDir": "dist",
+  "server": {
+    "cleartext": true
+  }
+}
