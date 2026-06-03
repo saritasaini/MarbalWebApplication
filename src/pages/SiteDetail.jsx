@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from 'react'
 import { useLanguage } from '../context/LanguageContext.jsx'
 import { useParams, useNavigate, Link } from 'react-router-dom'
-import { 
-  ArrowLeft, 
-  Phone, 
-  MapPin, 
-  Calendar, 
-  CheckCircle, 
-  Trash2, 
+import {
+  ArrowLeft,
+  Phone,
+  MapPin,
+  Calendar,
+  CheckCircle,
+  Trash2,
   Camera,
   FileText,
   MessageCircle
@@ -20,7 +20,7 @@ import toast from 'react-hot-toast'
 
 const SiteDetail = () => {
   const { t } = useLanguage()
-  
+
   const { id } = useParams()
   const navigate = useNavigate()
   const [site, setSite] = useState(null)
@@ -70,7 +70,7 @@ const SiteDetail = () => {
   }
 
   const handleWhatsAppReminder = () => {
-    const message = `Dear ${site.customerName}, your payment of ${formatCurrency(site.remainingPayment)} is pending for site at ${site.siteAddress}. Please pay at your earliest convenience. Thank you.`
+    const message = `प्रिय ${site.customerName},\nआपकी साइट ${site.siteAddress} के लिए ₹${formatCurrency(site.remainingPayment)} का भुगतान अभी लंबित है। कृपया यथाशीघ्र भुगतान करने का कष्ट करें।\nधन्यवाद।`
     const url = `https://wa.me/91${site.customerMobile}?text=${encodeURIComponent(message)}`
     window.open(url, '_blank')
   }
@@ -114,7 +114,7 @@ const SiteDetail = () => {
       {/* Back & Actions */}
       <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
         <div className="flex items-center gap-3">
-          <button 
+          <button
             onClick={() => navigate('/sites')}
             className="p-2 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-700 transition-colors"
           >
@@ -262,8 +262,8 @@ const SiteDetail = () => {
             ) : (
               <div className="space-y-3">
                 {payments.map((payment) => (
-                  <div 
-                    key={payment._id} 
+                  <div
+                    key={payment._id}
                     className="p-3 bg-gray-50 dark:bg-gray-800 rounded-lg"
                   >
                     <div className="flex justify-between items-start">
@@ -298,7 +298,7 @@ const SiteDetail = () => {
             <button onClick={() => setShowDeleteModal(false)} className="btn-secondary">
               Cancel
             </button>
-            <button 
+            <button
               onClick={handleDelete}
               className="px-4 py-2 bg-danger-600 text-white rounded-lg hover:bg-danger-700 transition-colors"
             >{t('Delete', 'हटाएं')}</button>
