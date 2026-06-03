@@ -136,9 +136,9 @@ const Reports = () => {
                     <table className="w-full">
                       <thead className="bg-gray-50 dark:bg-gray-800">
                         <tr>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Customer</th>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-                          <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">Amount</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Customer</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Date</th>
+                          <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Amount</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -147,9 +147,9 @@ const Reports = () => {
                         )}
                         {report.details.incomeList?.map((income, index) => (
                           <tr key={index}>
-                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{income.customerName || income.siteId?.customerName || '-'}</td>
-                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{formatDate(income.paymentDate)}</td>
-                            <td className="px-4 py-3 text-sm text-right font-medium text-success-600">
+                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white whitespace-nowrap">{income.customerName || income.siteId?.customerName || '-'}</td>
+                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">{formatDate(income.paymentDate)}</td>
+                            <td className="px-4 py-3 text-sm text-right font-medium text-success-600 whitespace-nowrap">
                               +{formatCurrency(income.amount || 0)}
                             </td>
                           </tr>
@@ -167,9 +167,9 @@ const Reports = () => {
                     <table className="w-full">
                       <thead className="bg-gray-50 dark:bg-gray-800">
                         <tr>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Type</th>
-                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase">Date</th>
-                          <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase">Amount</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Type</th>
+                          <th className="px-4 py-3 text-left text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Date</th>
+                          <th className="px-4 py-3 text-right text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Amount</th>
                         </tr>
                       </thead>
                       <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -178,9 +178,9 @@ const Reports = () => {
                         )}
                         {report.details.expenseList?.map((expense, index) => (
                           <tr key={index}>
-                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white">{expense.expenseType || '-'}</td>
-                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{formatDate(expense.expenseDate)}</td>
-                            <td className="px-4 py-3 text-sm text-right font-medium text-danger-600">
+                            <td className="px-4 py-3 text-sm text-gray-900 dark:text-white whitespace-nowrap">{expense.expenseType || '-'}</td>
+                            <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">{formatDate(expense.expenseDate)}</td>
+                            <td className="px-4 py-3 text-sm text-right font-medium text-danger-600 whitespace-nowrap">
                               -{formatCurrency(expense.amount || 0)}
                             </td>
                           </tr>

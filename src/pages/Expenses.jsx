@@ -226,30 +226,30 @@ const Expenses = () => {
               <table className="w-full text-left">
                 <thead className="bg-gray-50 dark:bg-gray-800 sticky top-0">
                   <tr>
-                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">S.No.</th>
-                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Type</th>
-                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Description</th>
-                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Amount</th>
-                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Date</th>
+                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">S.No.</th>
+                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Type</th>
+                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Description</th>
+                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Amount</th>
+                    <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Date</th>
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                   {expenses.map((expense, index) => (
                     <tr key={expense._id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50">
-                      <td className="px-4 py-3 text-sm text-gray-500">{index + 1}</td>
-                      <td className="px-4 py-3">
+                      <td className="px-4 py-3 text-sm text-gray-500 whitespace-nowrap">{index + 1}</td>
+                      <td className="px-4 py-3 whitespace-nowrap">
                         <div className="flex items-center gap-2">
                           {getExpenseIcon(expense.expenseType)}
                           <span className="text-sm font-medium text-gray-900 dark:text-gray-200">{expense.expenseType}</span>
                         </div>
                       </td>
-                      <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400 max-w-[200px] truncate">
+                      <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400 max-w-[200px] truncate whitespace-nowrap">
                         {expense.description || '-'}
                       </td>
-                      <td className="px-4 py-3 font-medium text-gray-900 dark:text-white">
+                      <td className="px-4 py-3 font-medium text-gray-900 dark:text-white whitespace-nowrap">
                         {formatCurrency(expense.amount)}
                       </td>
-                      <td className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400">
+                      <td className="px-4 py-3 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
                         {formatDate(expense.expenseDate)}
                       </td>
                     </tr>

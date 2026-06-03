@@ -83,7 +83,12 @@ const Reminders = () => {
                   <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 transition-colors">
                     {site.customerName}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{site.customerMobile}</p>
+                  <span 
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.location.href = `tel:${site.customerMobile}`; }}
+                    className="text-sm text-primary-600 dark:text-primary-400 hover:underline cursor-pointer inline-flex items-center"
+                  >
+                    {site.customerMobile}
+                  </span>
                 </div>
                 <span className={`status-badge ${getStatusColor(site.paymentStatus)}`}>
                   {site.paymentStatus}

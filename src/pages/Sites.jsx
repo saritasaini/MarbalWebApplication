@@ -169,7 +169,12 @@ const Sites = () => {
                   <h3 className="font-semibold text-gray-900 dark:text-white group-hover:text-primary-600 transition-colors">
                     {site.customerName}
                   </h3>
-                  <p className="text-sm text-gray-500 dark:text-gray-400">{site.customerMobile}</p>
+                  <span 
+                    onClick={(e) => { e.preventDefault(); e.stopPropagation(); window.location.href = `tel:${site.customerMobile}`; }}
+                    className="text-sm text-primary-600 dark:text-primary-400 hover:underline cursor-pointer inline-flex items-center"
+                  >
+                    {site.customerMobile}
+                  </span>
                 </div>
                 <span className={`status-badge ${getStatusColor(site.paymentStatus)}`}>
                   {site.paymentStatus}
@@ -214,34 +219,39 @@ const Sites = () => {
             <table className="w-full text-left">
               <thead className="bg-gray-50 dark:bg-gray-800">
                 <tr>
-                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">S.No.</th>
-                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Customer</th>
-                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Work Type</th>
-                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Area</th>
-                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Rate</th>
-                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Total</th>
-                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Status</th>
-                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase">Action</th>
+                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">S.No.</th>
+                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Customer</th>
+                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Work Type</th>
+                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Area</th>
+                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Rate</th>
+                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Total</th>
+                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Status</th>
+                  <th className="px-4 py-3 text-xs font-medium text-gray-500 uppercase whitespace-nowrap">Action</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
                 {sites.map((site, index) => (
                   <tr key={site._id} className="hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer" onClick={() => window.location.href = `/sites/${site._id}`}>
-                    <td className="px-4 py-3 text-sm text-gray-500">{index + 1}</td>
-                    <td className="px-4 py-3">
+                    <td className="px-4 py-3 text-sm text-gray-500 whitespace-nowrap">{index + 1}</td>
+                    <td className="px-4 py-3 whitespace-nowrap">
                       <div className="font-medium text-gray-900 dark:text-white">{site.customerName}</div>
-                      <div className="text-xs text-gray-500">{site.customerMobile}</div>
+                      <span 
+                        onClick={(e) => { e.stopPropagation(); window.location.href = `tel:${site.customerMobile}`; }}
+                        className="text-xs text-primary-600 dark:text-primary-400 hover:underline cursor-pointer inline-flex items-center"
+                      >
+                        {site.customerMobile}
+                      </span>
                     </td>
-                    <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400">{site.workType}</td>
-                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-200">{site.squareFeet} sqft</td>
-                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-200">₹{site.ratePerSqft}/sqft</td>
-                    <td className="px-4 py-3">
+                    <td className="px-4 py-3 text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">{site.workType}</td>
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-200 whitespace-nowrap">{site.squareFeet} sqft</td>
+                    <td className="px-4 py-3 text-sm text-gray-900 dark:text-gray-200 whitespace-nowrap">₹{site.ratePerSqft}/sqft</td>
+                    <td className="px-4 py-3 whitespace-nowrap">
                       <div className="text-sm font-medium text-primary-600">{formatCurrency(site.totalAmount)}</div>
                     </td>
-                    <td className="px-4 py-3">
+                    <td className="px-4 py-3 whitespace-nowrap">
                       <span className={`status-badge ${getStatusColor(site.paymentStatus)}`}>{site.paymentStatus}</span>
                     </td>
-                    <td className="px-4 py-3 text-sm">
+                    <td className="px-4 py-3 text-sm whitespace-nowrap">
                       <button 
                         onClick={(e) => { e.stopPropagation(); setEditingSite(site); setShowEditModal(true); }}
                         className="p-1.5 text-primary-600 hover:bg-primary-50 dark:hover:bg-gray-700 rounded-md transition-colors"

@@ -126,6 +126,13 @@ const SiteDetail = () => {
           </div>
         </div>
         <div className="flex gap-2">
+          <a
+            href={`tel:${site.customerMobile}`}
+            className="inline-flex items-center gap-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+          >
+            <Phone size={18} />
+            Call
+          </a>
           <button
             onClick={handleWhatsAppReminder}
             className="inline-flex items-center gap-2 px-4 py-2 bg-success-600 text-white rounded-lg hover:bg-success-700 transition-colors"
@@ -175,7 +182,9 @@ const SiteDetail = () => {
                   <Phone className="text-gray-400 mt-0.5" size={18} />
                   <div>
                     <p className="text-sm text-gray-500 dark:text-gray-400">Mobile</p>
-                    <p className="font-medium text-gray-900 dark:text-white">{site.customerMobile}</p>
+                    <a href={`tel:${site.customerMobile}`} className="font-medium text-primary-600 hover:text-primary-700 dark:text-primary-400 inline-flex items-center hover:underline">
+                      {site.customerMobile}
+                    </a>
                   </div>
                 </div>
                 <div className="flex items-start gap-3">

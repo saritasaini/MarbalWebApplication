@@ -219,12 +219,12 @@ const Dashboard = () => {
           <table className="w-full">
             <thead className="bg-gray-50 dark:bg-gray-800">
               <tr>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">S.No.</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Customer</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Work Type</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Amount</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Status</th>
-                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase">Date</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase whitespace-nowrap">S.No.</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase whitespace-nowrap">Customer</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase whitespace-nowrap">Work Type</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase whitespace-nowrap">Amount</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase whitespace-nowrap">Status</th>
+                <th className="px-6 py-3 text-left text-xs font-medium text-gray-500 dark:text-gray-400 uppercase whitespace-nowrap">Date</th>
               </tr>
             </thead>
             <tbody className="divide-y divide-gray-200 dark:divide-gray-700">
@@ -234,16 +234,21 @@ const Dashboard = () => {
                   onClick={() => navigate(`/sites/${site._id}`)}
                   className="hover:bg-gray-50 dark:hover:bg-gray-800/50 cursor-pointer"
                 >
-                  <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">{index + 1}</td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">{index + 1}</td>
+                  <td className="px-6 py-4 whitespace-nowrap">
                     <div className="font-medium text-gray-900 dark:text-white">{site.customerName}</div>
-                    <div className="text-sm text-gray-500">{site.customerMobile}</div>
+                    <span 
+                      onClick={(e) => { e.stopPropagation(); window.location.href = `tel:${site.customerMobile}`; }}
+                      className="text-sm text-primary-600 dark:text-primary-400 hover:underline cursor-pointer inline-flex items-center"
+                    >
+                      {site.customerMobile}
+                    </span>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400">{site.workType}</td>
-                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white">
+                  <td className="px-6 py-4 text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">{site.workType}</td>
+                  <td className="px-6 py-4 text-sm font-medium text-gray-900 dark:text-white whitespace-nowrap">
                     {formatCurrency(site.totalAmount)}
                   </td>
-                  <td className="px-6 py-4">
+                  <td className="px-6 py-4 whitespace-nowrap">
                     <span className={`status-badge ${
                       site.paymentStatus === 'Paid' 
                         ? 'bg-success-100 text-success-600' 
@@ -254,7 +259,7 @@ const Dashboard = () => {
                       {site.paymentStatus}
                     </span>
                   </td>
-                  <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400">
+                  <td className="px-6 py-4 text-sm text-gray-500 dark:text-gray-400 whitespace-nowrap">
                     {formatDate(site.createdAt)}
                   </td>
                 </tr>
